@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -67,9 +70,17 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL='users.User'
+ACCOUNT_UNIQUE_EMAIL=True
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        
+        
+    ]
+}
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
