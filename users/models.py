@@ -22,18 +22,18 @@ def create_auth_token(sender,instance=None,created=False,**kwargs):
 
 class Freelancer(models.Model):
     user=models.OneToOneField(User,related_name='freelancer',on_delete=models.CASCADE)
-    phone=models.CharField(max_length=12)
-    skills=models.CharField(max_length=255)
-    description=models.TextField()
-    protofolio=models.CharField(max_length=255)
+    phone=models.CharField(max_length=12,null=True,blank=True)
+    skills=models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True,blank=True)
+    protofolio=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.user.username
 
 class Client(models.Model):
     user=models.OneToOneField(User,related_name="empolyer",on_delete=models.CASCADE)
-    company_name=models.CharField(max_length=200,)
-    descussion=models.TextField()
+    company_name=models.CharField(max_length=200,null=True,blank=True)
+    descussion=models.TextField(null=True,blank=True)
 
     def __str__(self):
         return self.company_name
