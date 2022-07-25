@@ -2,10 +2,12 @@ from dataclasses import fields
 from distutils.log import error
 from rest_framework import serializers
 from users.models import User,Freelancer,Client
+from django.contrib.auth.models import  Group
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
-        fields=['username','email','is_client','is_freelancer']
+        fields=['username','email','is_client','is_freelancer','is_staff',]
+
 
 class FreelanceSignupSerializer(serializers.ModelSerializer):
     password2=serializers.CharField(style={"input_type":"password"},write_only=True)

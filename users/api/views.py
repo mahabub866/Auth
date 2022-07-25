@@ -6,6 +6,9 @@ from rest_framework.views import APIView
 from rest_framework import permissions
 from users.api.permission import IsClientUser,IsFreelanceUser
 from users.api.serializers import ClientSignupSerializer, FreelanceSignupSerializer, UserSerializer
+from rest_framework import viewsets
+from rest_framework import permissions
+
 
 
 class FreelanceSignupView(generics.GenericAPIView):
