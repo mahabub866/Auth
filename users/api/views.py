@@ -11,6 +11,12 @@ from rest_framework import permissions
 
 
 
+class http_response(generics.GenericAPIView):
+    def get(self,request,*args,**kwargs):
+        return  Response({
+            "message":"Account Created Succesfully."
+        })
+
 class FreelanceSignupView(generics.GenericAPIView):
     serializer_class=FreelanceSignupSerializer
 
